@@ -1,0 +1,15 @@
+[submodule "pack/plugins/opt/supertab"]
+	path = pack/plugins/opt/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "pack/plugins/opt/emmet"]
+	path = pack/plugins/opt/emmet
+	url = https://github.com/mattn/emmet-vim.git
+[submodule "pack/plugins/opt/goyo"]
+	path = pack/plugins/opt/goyo
+	url = https://github.com/junegunn/goyo.vim.git
+[submodule "pack/plugins/opt/vim-glsl"]
+	path = pack/plugins/opt/vim-glsl
+	url = https://github.com/tikhomirov/vim-glsl.git
+[submodule "pack/plugins/opt/lldb"]
+	path = pack/plugins/opt/lldb
+	url = https://github.com/gilligan/vim-lldb.git
