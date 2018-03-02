@@ -18,7 +18,7 @@ if ! exists("g:monokai_gui_italic")
 endif
 
 if ! exists("g:monokai_term_italic")
-    let g:monokai_term_italic = 0
+    let g:monokai_term_italic = 1
 endif
 
 let g:monokai_termcolors = 256 " does not support 16 color term right now.

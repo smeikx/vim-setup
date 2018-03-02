@@ -23,7 +23,7 @@ let g:colors_name="molokai"
 if exists("g:molokai_original")
     let s:molokai_original = g:molokai_original
 else
-    let s:molokai_original = 0
+    let s:molokai_original = 1
 endif
 
 
@@ -231,6 +231,9 @@ if &t_Co > 255
    hi NonText         ctermfg=59
 
    hi SpecialKey      ctermfg=59
+
+	"macht Farben angeblich besser
+	let g:rehash256 = 1
 
    if exists("g:rehash256") && g:rehash256 == 1
        hi Normal       ctermfg=252 ctermbg=234
