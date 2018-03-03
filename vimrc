@@ -90,8 +90,6 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Color Schemes -------------- {{{
 
-source ~/.vimcolor
-
 "color PaperColor
 "color bclear
 "color contrastneed
@@ -133,7 +131,4 @@ augroup autocommands
 	au BufNewFile,BufRead *.vs,*.fs,*.vert,*.tesc,*.tese,*.geom,*.frag,*.comp,*.glsl set ft=glsl
 augroup END
 "}}}
-
-" lädt Abbreviations
-source ~/.vim_abb
 
