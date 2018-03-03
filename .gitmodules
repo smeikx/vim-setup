@@ -1,5 +1,5 @@
 [submodule "pack/plugins/opt/supertab"]
-	path = pack/plugins/opt/supertab
+	path = pack/plugins/start/supertab
 	url = https://github.com/ervandew/supertab.git
 [submodule "pack/plugins/opt/emmet"]
 	path = pack/plugins/opt/emmet
