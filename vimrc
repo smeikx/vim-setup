@@ -4,6 +4,7 @@ augroup filetype_vim
 augroup END
 
 " Übergreifende Grundeinstellungen ————————————————— {{{
+
 " wie viele Spaces hat ein Tab
 set tabstop=3
 
@@ -68,8 +69,9 @@ set splitright
 " blendet Header von Filebrowser aus
 let g:netrw_banner = 1
 
-" macht Hintergrund nicht hell, gibt bloß Scheme Bescheid
-"set background=light
+" Folding basiert auf Einrückungen, wird aber deaktiviert
+set foldmethod=indent
+set nofoldenable
 
 " }}}
 
@@ -79,12 +81,12 @@ let mapleader = " "
 
 nnoremap <leader>O O<esc>
 nnoremap <leader>o o<esc>
-nnoremap <leader><Enter> i<Enter><Esc>
+nnoremap <leader><cr> i<cr><Esc>
 
 " nnoremap / /\v
 " cnoremap %s/ %s/\v
 
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>ev :tabe $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 "}}}
 
