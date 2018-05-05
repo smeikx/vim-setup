@@ -1,6 +1,7 @@
 augroup filetype_vim
 	autocmd!
 	autocmd FileType vim setlocal foldmethod=marker
+	autocmd FileType vim setlocal foldenable
 augroup END
 
 " Übergreifende Grundeinstellungen ————————————————— {{{
