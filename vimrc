@@ -141,6 +141,9 @@ augroup autocommands
 
 	" aktiviere Plugin für GLSL-Syntax-Highlighting
 	au BufNewFile,BufRead *.vs,*.fs,*.vert,*.tesc,*.tese,*.geom,*.frag,*.comp,*.glsl set ft=glsl
+	" aktiviert eigenes Folding-Plugin
+	au FileType cpp,javascript,arduino,c,processing,java packadd c-esque-folding
+
 augroup END
 "}}}
 

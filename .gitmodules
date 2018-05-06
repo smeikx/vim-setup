@@ -13,3 +13,6 @@
 [submodule "pack/plugins/opt/lldb"]
 	path = pack/plugins/opt/lldb
 	url = https://github.com/gilligan/vim-lldb.git
+[submodule "pack/plugins/opt/c-esque-folding"]
+	path = pack/plugins/opt/c-esque-folding
+	url = https://github.com/smeikx/c-esque-folding.git
