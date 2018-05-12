@@ -51,6 +51,8 @@ set breakindent
 " für Settings die mit File gespeichtert werden /* vim: set tabstop=8 */
 set modeline 
 
+set grepprg=internal
+
 " ermöglicht Scrollen
 "set mouse=n
 
