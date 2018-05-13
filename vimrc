@@ -93,12 +93,7 @@ nnoremap <leader>ev :tabe $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " show definition in preview window
-nnoremap <leader>ä <c-w>}
-" choose definition to jump to
-" TODO: should do jump in preview window
-nnoremap <leader>ü g]
-" close preview window
-nnoremap <leader>ö :pc<cr>
+nnoremap ä :ptj <c-r><c-w><cr>
 
 "}}}
 
