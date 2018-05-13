@@ -133,6 +133,8 @@ augroup autocommands
 	" löscht alle bestehenden autocmds
 	au!
 
+	au FileType text,markdown packadd goyo
+
 	" aktiviert wrap im diff-Modus
 	au FilterWritePre * if &diff | setlocal wrap | endif
 
