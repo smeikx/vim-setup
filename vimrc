@@ -82,8 +82,8 @@ set nofoldenable
 " mapt den <Leader>-Key auf ' ' (default ist '\')
 let mapleader = " "
 
-nnoremap <leader>O O<esc>
-nnoremap <leader>o o<esc>
+nnoremap <leader>O O<esc>k
+nnoremap <leader>o o<esc>k
 nnoremap <leader><cr> i<cr><Esc>
 
 " nnoremap / /\v
