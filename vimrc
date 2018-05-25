@@ -93,7 +93,8 @@ nnoremap <leader>ev :tabe $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " show definition in preview window
-nnoremap ä :ptj <c-r><c-w><cr>
+nnoremap ä :tj <c-r><c-w><cr>
+nnoremap <leader>ä :ptj <c-r><c-w><cr>
 
 "}}}
 
