@@ -1,0 +1,364 @@
+From 4719116d98db3369d306c3ebf9881609fbbcc0e4 Mon Sep 17 00:00:00 2001
+From: smeikx <pack@man.vim>
+Date: Sat, 27 Jul 2019 17:23:53 +0200
+Subject: [PATCH 1/3] replace double quotes with single quotes
+
+---
+ autoload/emmet.vim           | 94 ++++++++++++++++++------------------
+ autoload/emmet/lang/html.vim |  2 +-
+ doc/emmet.txt                |  2 +-
+ 3 files changed, 49 insertions(+), 49 deletions(-)
+
+diff --git a/autoload/emmet.vim b/autoload/emmet.vim
+index 0e36d3b..1bb694f 100644
+--- a/autoload/emmet.vim
++++ b/autoload/emmet.vim
+@@ -1543,8 +1543,8 @@ let s:emmet_settings = {
+ \           "ff:c": "font-family:cursive;",
+ \           "ff:f": "font-family:fantasy;",
+ \           "ff:m": "font-family:monospace;",
+-\           "ff:a": "font-family: Arial, \"Helvetica Neue\", Helvetica, sans-serif;",
+-\           "ff:t": "font-family: \"Times New Roman\", Times, Baskerville, Georgia, serif;",
++\           "ff:a": "font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;",
++\           "ff:t": "font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;",
+ \           "ff:v": "font-family: Verdana, Geneva, sans-serif;",
+ \           "fef": "font-effect:|;",
+ \           "fef:n": "font-effect:none;",
+@@ -1684,59 +1684,59 @@ let s:emmet_settings = {
+ \        'snippets': {
+ \            '!': "html:5",
+ \            '!!!': "<!DOCTYPE html>\n",
+-\            '!!!4t':  "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n",
+-\            '!!!4s':  "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">\n",
+-\            '!!!xt':  "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n",
+-\            '!!!xs':  "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n",
+-\            '!!!xxs': "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n",
++\            '!!!4t':  "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN' 'http://www.w3.org/TR/html4/loose.dtd'>\n",
++\            '!!!4s':  "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01//EN' 'http://www.w3.org/TR/html4/strict.dtd'>\n",
++\            '!!!xt':  "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>\n",
++\            '!!!xs':  "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>\n",
++\            '!!!xxs': "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.1//EN' 'http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd'>\n",
+ \            'c': "<!-- |${child} -->",
+ \            'cc:ie6': "<!--[if lte IE 6]>\n\t${child}|\n<![endif]-->",
+ \            'cc:ie': "<!--[if IE]>\n\t${child}|\n<![endif]-->",
+ \            'cc:noie': "<!--[if !IE]><!-->\n\t${child}|\n<!--<![endif]-->",
+-\            'html:4t': "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n"
+-\                    ."<html lang=\"${lang}\">\n"
++\            'html:4t': "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN' 'http://www.w3.org/TR/html4/loose.dtd'>\n"
++\                    ."<html lang='${lang}'>\n"
+ \                    ."<head>\n"
+-\                    ."\t<meta http-equiv=\"Content-Type\" content=\"text/html;charset=${charset}\">\n"
++\                    ."\t<meta http-equiv='Content-Type' content='text/html;charset=${charset}'>\n"
+ \                    ."\t<title></title>\n"
+ \                    ."</head>\n"
+ \                    ."<body>\n\t${child}|\n</body>\n"
+ \                    ."</html>",
+-\            'html:4s': "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">\n"
+-\                    ."<html lang=\"${lang}\">\n"
++\            'html:4s': "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01//EN' 'http://www.w3.org/TR/html4/strict.dtd'>\n"
++\                    ."<html lang='${lang}'>\n"
+ \                    ."<head>\n"
+-\                    ."\t<meta http-equiv=\"Content-Type\" content=\"text/html;charset=${charset}\">\n"
++\                    ."\t<meta http-equiv='Content-Type' content='text/html;charset=${charset}'>\n"
+ \                    ."\t<title></title>\n"
+ \                    ."</head>\n"
+ \                    ."<body>\n\t${child}|\n</body>\n"
+ \                    ."</html>",
+-\            'html:xt': "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n"
+-\                    ."<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"${lang}\">\n"
++\            'html:xt': "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>\n"
++\                    ."<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='${lang}'>\n"
+ \                    ."<head>\n"
+-\                    ."\t<meta http-equiv=\"Content-Type\" content=\"text/html;charset=${charset}\" />\n"
++\                    ."\t<meta http-equiv='Content-Type' content='text/html;charset=${charset}' />\n"
+ \                    ."\t<title></title>\n"
+ \                    ."</head>\n"
+ \                    ."<body>\n\t${child}|\n</body>\n"
+ \                    ."</html>",
+-\            'html:xs': "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
+-\                    ."<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"${lang}\">\n"
++\            'html:xs': "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>\n"
++\                    ."<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='${lang}'>\n"
+ \                    ."<head>\n"
+-\                    ."\t<meta http-equiv=\"Content-Type\" content=\"text/html;charset=${charset}\" />\n"
++\                    ."\t<meta http-equiv='Content-Type' content='text/html;charset=${charset}' />\n"
+ \                    ."\t<title></title>\n"
+ \                    ."</head>\n"
+ \                    ."<body>\n\t${child}|\n</body>\n"
+ \                    ."</html>",
+-\            'html:xxs': "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n"
+-\                    ."<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"${lang}\">\n"
++\            'html:xxs': "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.1//EN' 'http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd'>\n"
++\                    ."<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='${lang}'>\n"
+ \                    ."<head>\n"
+-\                    ."\t<meta http-equiv=\"Content-Type\" content=\"text/html;charset=${charset}\" />\n"
++\                    ."\t<meta http-equiv='Content-Type' content='text/html;charset=${charset}' />\n"
+ \                    ."\t<title></title>\n"
+ \                    ."</head>\n"
+ \                    ."<body>\n\t${child}|\n</body>\n"
+ \                    ."</html>",
+ \            'html:5': "<!DOCTYPE html>\n"
+-\                    ."<html lang=\"${lang}\">\n"
++\                    ."<html lang='${lang}'>\n"
+ \                    ."<head>\n"
+-\                    ."\t<meta charset=\"${charset}\">\n"
++\                    ."\t<meta charset='${charset}'>\n"
+ \                    ."\t<title></title>\n"
+ \                    ."</head>\n"
+ \                    ."<body>\n\t${child}|\n</body>\n"
+@@ -1914,46 +1914,46 @@ let s:emmet_settings = {
+ \        'snippets': {
+ \            '!': "html:5",
+ \            '!!!': "doctype html\n",
+-\            '!!!4t': "doctype HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"\n",
+-\            '!!!4s': "doctype HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\"\n",
++\            '!!!4t': "doctype HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN' 'http://www.w3.org/TR/html4/loose.dtd'\n",
++\            '!!!4s': "doctype HTML PUBLIC '-//W3C//DTD HTML 4.01//EN' 'http://www.w3.org/TR/html4/strict.dtd'\n",
+ \            '!!!xt': "doctype transitional\n",
+ \            '!!!xs': "doctype strict\n",
+ \            '!!!xxs': "doctype 1.1\n",
+ \            'c': "\/\/ |${child}",
+-\            'html:4t': "doctype HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"\n"
+-\                    ."html(lang=\"${lang}\")\n"
++\            'html:4t': "doctype HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN' 'http://www.w3.org/TR/html4/loose.dtd'\n"
++\                    ."html(lang='${lang}')\n"
+ \                    ."\thead\n"
+-\                    ."\t\tmeta(http-equiv=\"Content-Type\", content=\"text/html;charset=${charset}\")\n"
++\                    ."\t\tmeta(http-equiv='Content-Type', content='text/html;charset=${charset}')\n"
+ \                    ."\t\ttitle\n"
+ \                    ."\tbody\n\t\t${child}|",
+-\            'html:4s': "doctype HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\"\n"
+-\                    ."html(lang=\"${lang}\")\n"
++\            'html:4s': "doctype HTML PUBLIC '-//W3C//DTD HTML 4.01//EN' 'http://www.w3.org/TR/html4/strict.dtd'\n"
++\                    ."html(lang='${lang}')\n"
+ \                    ."\thead\n"
+-\                    ."\t\tmeta(http-equiv=\"Content-Type\", content=\"text/html;charset=${charset}\")\n"
++\                    ."\t\tmeta(http-equiv='Content-Type', content='text/html;charset=${charset}')\n"
+ \                    ."\t\ttitle\n"
+ \                    ."\tbody\n\t\t${child}|",
+ \            'html:xt': "doctype transitional\n"
+-\                    ."html(xmlns=\"http://www.w3.org/1999/xhtml\", xml:lang=\"${lang}\")\n"
++\                    ."html(xmlns='http://www.w3.org/1999/xhtml', xml:lang='${lang}')\n"
+ \                    ."\thead\n"
+-\                    ."\t\tmeta(http-equiv=\"Content-Type\", content=\"text/html;charset=${charset}\")\n"
++\                    ."\t\tmeta(http-equiv='Content-Type', content='text/html;charset=${charset}')\n"
+ \                    ."\t\ttitle\n"
+ \                    ."\tbody\n\t\t${child}|",
+ \            'html:xs': "doctype strict\n"
+-\                    ."html(xmlns=\"http://www.w3.org/1999/xhtml\", xml:lang=\"${lang}\")\n"
++\                    ."html(xmlns='http://www.w3.org/1999/xhtml', xml:lang='${lang}')\n"
+ \                    ."\thead\n"
+-\                    ."\t\tmeta(http-equiv=\"Content-Type\", content=\"text/html;charset=${charset}\")\n"
++\                    ."\t\tmeta(http-equiv='Content-Type', content='text/html;charset=${charset}')\n"
+ \                    ."\t\ttitle\n"
+ \                    ."\tbody\n\t\t${child}|",
+ \            'html:xxs': "doctype 1.1\n"
+-\                    ."html(xmlns=\"http://www.w3.org/1999/xhtml\", xml:lang=\"${lang}\")\n"
++\                    ."html(xmlns='http://www.w3.org/1999/xhtml', xml:lang='${lang}')\n"
+ \                    ."\thead\n"
+-\                    ."\t\tmeta(http-equiv=\"Content-Type\", content=\"text/html;charset=${charset}\")\n"
++\                    ."\t\tmeta(http-equiv='Content-Type', content='text/html;charset=${charset}')\n"
+ \                    ."\t\ttitle\n"
+ \                    ."\tbody\n\t\t${child}|",
+ \            'html:5': "doctype html\n"
+-\                    ."html(lang=\"${lang}\")\n"
++\                    ."html(lang='${lang}')\n"
+ \                    ."\thead\n"
+-\                    ."\t\tmeta(charset=\"${charset}\")\n"
++\                    ."\t\tmeta(charset='${charset}')\n"
+ \                    ."\t\ttitle\n"
+ \                    ."\tbody\n\t\t${child}|",
+ \        },
+@@ -2015,9 +2015,9 @@ let s:emmet_settings = {
+ \        'extends': 'html',
+ \        'snippets': {
+ \            'html:5': "!!! 5\n"
+-\                    ."%html{:lang => \"${lang}\"}\n"
++\                    ."%html{:lang => '${lang}'}\n"
+ \                    ."\t%head\n"
+-\                    ."\t\t%meta{:charset => \"${charset}\"}\n"
++\                    ."\t\t%meta{:charset => '${charset}'}\n"
+ \                    ."\t\t%title\n"
+ \                    ."\t%body\n"
+ \                    ."\t\t${child}|\n",
+@@ -2029,9 +2029,9 @@ let s:emmet_settings = {
+ \        'extends': 'html',
+ \        'snippets': {
+ \            'html:5': "doctype 5\n"
+-\                    ."html lang=\"${lang}\"\n"
++\                    ."html lang='${lang}'\n"
+ \                    ."\thead\n"
+-\                    ."\t\tmeta charset=\"${charset}\"\n"
++\                    ."\t\tmeta charset='${charset}'\n"
+ \                    ."\t\ttitle\n"
+ \                    ."\tbody\n"
+ \                    ."\t\t${child}|\n",
+@@ -2047,9 +2047,9 @@ let s:emmet_settings = {
+ \    'xsd': {
+ \        'extends': 'html',
+ \        'snippets': {
+-\            'xsd:w3c': "<?xml version=\"1.0\"?>\n"
+-\                    ."<xsd:schema xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\n"
+-\                    ."\t<xsd:element name=\"\" type=\"\"/>\n"
++\            'xsd:w3c': "<?xml version='1.0'?>\n"
++\                    ."<xsd:schema xmlns:xsd='http://www.w3.org/2001/XMLSchema'>\n"
++\                    ."\t<xsd:element name='' type=''/>\n"
+ \                    ."</xsd:schema>\n"
+ \        }
+ \    },
+diff --git a/autoload/emmet/lang/html.vim b/autoload/emmet/lang/html.vim
+index 5e374f7..6c9c6bd 100644
+--- a/autoload/emmet/lang/html.vim
++++ b/autoload/emmet/lang/html.vim
+@@ -464,7 +464,7 @@ function! emmet#lang#html#toString(settings, current, type, inline, filters, ite
+   let itemno = a:itemno
+   let indent = a:indent
+   let dollar_expr = emmet#getResource(type, 'dollar_expr', 1)
+-  let q = emmet#getResource(type, 'quote_char', '"')
++  let q = emmet#getResource(type, 'quote_char', '''')
+   let ct = emmet#getResource(type, 'comment_type', 'both')
+   let an = emmet#getResource(type, 'attribute_name', {})
+   let empty_elements = emmet#getResource(type, 'empty_elements', settings.html.empty_elements)
+diff --git a/doc/emmet.txt b/doc/emmet.txt
+index 224e20e..36ea398 100644
+--- a/doc/emmet.txt
++++ b/doc/emmet.txt
+@@ -160,7 +160,7 @@ You should copy this section and create new buffer, paste and write as
+ <
+ 3. Update tag                                     *emmet-update-tag* *<C-y>u*
+ 
+-  The beginning of tags '<div>' on below
++  The begining of tags '<div>' on below
+ >
+   <div>foo</div>
+ <
+-- 
+2.25.0
+
+
+From 9c04a5b1ba59f7e24de10a34f73da831724c9e16 Mon Sep 17 00:00:00 2001
+From: smeikx <pack@man.vim>
+Date: Sat, 21 Sep 2019 21:25:06 +0200
+Subject: [PATCH 2/3] set user_emmet_expandabbr_key to <c-h>
+
+---
+ plugin/emmet.vim | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/plugin/emmet.vim b/plugin/emmet.vim
+index 93e5cb0..ace1338 100644
+--- a/plugin/emmet.vim
++++ b/plugin/emmet.vim
+@@ -94,6 +94,10 @@ if !exists('g:user_emmet_leader_key')
+   let g:user_emmet_leader_key = '<c-y>'
+ endif
+ 
++if !exists('g:user_emmet_expandabbr_key')
++  let g:user_emmet_expandabbr_key = '<c-h>'
++endif
++
+ function! s:install_plugin(mode, buffer)
+   let buffer = a:buffer ? '<buffer>' : ''
+   let items = [
+-- 
+2.25.0
+
+
+From 254aabaf8cc2f834db0d9874225db4a31758adbb Mon Sep 17 00:00:00 2001
+From: smeikx <pack@man.vim>
+Date: Sat, 21 Sep 2019 21:25:29 +0200
+Subject: [PATCH 3/3] deactivate unused mappings
+
+---
+ plugin/emmet.vim | 74 ++++++++++++++++++++++++------------------------
+ 1 file changed, 37 insertions(+), 37 deletions(-)
+
+diff --git a/plugin/emmet.vim b/plugin/emmet.vim
+index ace1338..2ab585f 100644
+--- a/plugin/emmet.vim
++++ b/plugin/emmet.vim
+@@ -102,44 +102,44 @@ function! s:install_plugin(mode, buffer)
+   let buffer = a:buffer ? '<buffer>' : ''
+   let items = [
+   \ {'mode': 'i', 'var': 'user_emmet_expandabbr_key', 'key': ',', 'plug': 'emmet-expand-abbr', 'func': '<c-r>=emmet#util#closePopup()<cr><c-r>=emmet#expandAbbr(0,"")<cr>'},
+-  \ {'mode': 'n', 'var': 'user_emmet_expandabbr_key', 'key': ',', 'plug': 'emmet-expand-abbr', 'func': ':call emmet#expandAbbr(3,"")<cr>'},
+-  \ {'mode': 'v', 'var': 'user_emmet_expandabbr_key', 'key': ',', 'plug': 'emmet-expand-abbr', 'func': ':call emmet#expandAbbr(2,"")<cr>'},
++  "\ {'mode': 'n', 'var': 'user_emmet_expandabbr_key', 'key': ',', 'plug': 'emmet-expand-abbr', 'func': ':call emmet#expandAbbr(3,"")<cr>'},
++  "\ {'mode': 'v', 'var': 'user_emmet_expandabbr_key', 'key': ',', 'plug': 'emmet-expand-abbr', 'func': ':call emmet#expandAbbr(2,"")<cr>'},
+   \ {'mode': 'i', 'var': 'user_emmet_expandword_key', 'key': ';', 'plug': 'emmet-expand-word', 'func': '<c-r>=emmet#util#closePopup()<cr><c-r>=emmet#expandAbbr(1,"")<cr>'},
+-  \ {'mode': 'n', 'var': 'user_emmet_expandword_key', 'key': ';', 'plug': 'emmet-expand-word', 'func': ':call emmet#expandAbbr(1,"")<cr>'},
+-  \ {'mode': 'i', 'var': 'user_emmet_update_tag', 'key': 'u', 'plug': 'emmet-update-tag', 'func': '<c-r>=emmet#util#closePopup()<cr><c-r>=emmet#updateTag()<cr>'},
+-  \ {'mode': 'n', 'var': 'user_emmet_update_tag', 'key': 'u', 'plug': 'emmet-update-tag', 'func': ':call emmet#updateTag()<cr>'},
+-  \ {'mode': 'i', 'var': 'user_emmet_balancetaginward_key', 'key': 'd', 'plug': 'emmet-balance-tag-inward', 'func': '<esc>:call emmet#balanceTag(1)<cr>'},
+-  \ {'mode': 'n', 'var': 'user_emmet_balancetaginward_key', 'key': 'd', 'plug': 'emmet-balance-tag-inward', 'func': ':call emmet#balanceTag(1)<cr>'},
+-  \ {'mode': 'v', 'var': 'user_emmet_balancetaginward_key', 'key': 'd', 'plug': 'emmet-balance-tag-inward', 'func': '<esc>:call emmet#balanceTag(1)<cr>'},
+-  \ {'mode': 'i', 'var': 'user_emmet_balancetagoutward_key', 'key': 'D', 'plug': 'emmet-balance-tag-outword', 'func': '<esc>:call emmet#balanceTag(-1)<cr>'},
+-  \ {'mode': 'n', 'var': 'user_emmet_balancetagoutward_key', 'key': 'D', 'plug': 'emmet-balance-tag-outword', 'func': ':call emmet#balanceTag(-1)<cr>'},
+-  \ {'mode': 'v', 'var': 'user_emmet_balancetagoutward_key', 'key': 'D', 'plug': 'emmet-balance-tag-outword', 'func': '<esc>:call emmet#balanceTag(-1)<cr>'},
+-  \ {'mode': 'i', 'var': 'user_emmet_next_key', 'key': 'n', 'plug': 'emmet-move-next', 'func': '<c-r>=emmet#util#closePopup()<cr><c-r>=emmet#moveNextPrev(0)<cr>'},
+-  \ {'mode': 'n', 'var': 'user_emmet_next_key', 'key': 'n', 'plug': 'emmet-move-next', 'func': ':call emmet#moveNextPrev(0)<cr>'},
+-  \ {'mode': 'i', 'var': 'user_emmet_prev_key', 'key': 'N', 'plug': 'emmet-move-prev', 'func': '<c-r>=emmet#util#closePopup()<cr><c-r>=emmet#moveNextPrev(1)<cr>'},
+-  \ {'mode': 'n', 'var': 'user_emmet_prev_key', 'key': 'N', 'plug': 'emmet-move-prev', 'func': ':call emmet#moveNextPrev(1)<cr>'},
+-  \ {'mode': 'i', 'var': '', 'key': '', 'plug': 'emmet-move-next-item', 'func': '<esc>:call emmet#moveNextPrevItem(0)<cr>'},
+-  \ {'mode': 'n', 'var': '', 'key': '', 'plug': 'emmet-move-next-item', 'func': ':call emmet#moveNextPrevItem(0)<cr>'},
+-  \ {'mode': 'i', 'var': '', 'key': '', 'plug': 'emmet-move-prev-item', 'func': '<esc>:call emmet#moveNextPrevItem(1)<cr>'},
+-  \ {'mode': 'n', 'var': '', 'key': '', 'plug': 'emmet-move-prev-item', 'func': ':call emmet#moveNextPrevItem(1)<cr>'},
+-  \ {'mode': 'i', 'var': 'user_emmet_imagesize_key', 'key': 'i', 'plug': 'emmet-image-size', 'func': '<c-r>=emmet#util#closePopup()<cr><c-r>=emmet#imageSize()<cr>'},
+-  \ {'mode': 'n', 'var': 'user_emmet_imagesize_key', 'key': 'i', 'plug': 'emmet-image-size', 'func': ':call emmet#imageSize()<cr>'},
+-  \ {'mode': 'i', 'var': 'user_emmet_imageencode_key', 'key': 'I', 'plug': 'emmet-image-encode', 'func': '<c-r>=emmet#util#closePopup()<cr><c-r>=emmet#imageEncode()<cr>'},
+-  \ {'mode': 'n', 'var': 'user_emmet_imageencode_key', 'key': 'I', 'plug': 'emmet-image-encode', 'func': ':call emmet#imageEncode()<cr>'},
+-  \ {'mode': 'i', 'var': 'user_emmet_togglecomment_key', 'key': '/', 'plug': 'emmet-toggle-comment', 'func': '<c-r>=emmet#util#closePopup()<cr><c-r>=emmet#toggleComment()<cr>'},
+-  \ {'mode': 'n', 'var': 'user_emmet_togglecomment_key', 'key': '/', 'plug': 'emmet-toggle-comment', 'func': ':call emmet#toggleComment()<cr>'},
+-  \ {'mode': 'i', 'var': 'user_emmet_splitjointag_key', 'key': 'j', 'plug': 'emmet-split-join-tag', 'func': '<esc>:call emmet#splitJoinTag()<cr>'},
+-  \ {'mode': 'n', 'var': 'user_emmet_splitjointag_key', 'key': 'j', 'plug': 'emmet-split-join-tag', 'func': ':call emmet#splitJoinTag()<cr>'},
+-  \ {'mode': 'i', 'var': 'user_emmet_removetag_key', 'key': 'k', 'plug': 'emmet-remove-tag', 'func': '<c-r>=emmet#util#closePopup()<cr><c-r>=emmet#removeTag()<cr>'},
+-  \ {'mode': 'n', 'var': 'user_emmet_removetag_key', 'key': 'k', 'plug': 'emmet-remove-tag', 'func': ':call emmet#removeTag()<cr>'},
+-  \ {'mode': 'i', 'var': 'user_emmet_anchorizeurl_key', 'key': 'a', 'plug': 'emmet-anchorize-url', 'func': '<c-r>=emmet#util#closePopup()<cr><c-r>=emmet#anchorizeURL(0)<cr>'},
+-  \ {'mode': 'n', 'var': 'user_emmet_anchorizeurl_key', 'key': 'a', 'plug': 'emmet-anchorize-url', 'func': ':call emmet#anchorizeURL(0)<cr>'},
+-  \ {'mode': 'i', 'var': 'user_emmet_anchorizesummary_key', 'key': 'A', 'plug': 'emmet-anchorize-summary', 'func': '<c-r>=emmet#util#closePopup()<cr><c-r>=emmet#anchorizeURL(1)<cr>'},
+-  \ {'mode': 'n', 'var': 'user_emmet_anchorizesummary_key', 'key': 'A', 'plug': 'emmet-anchorize-summary', 'func': ':call emmet#anchorizeURL(1)<cr>'},
+-  \ {'mode': 'i', 'var': 'user_emmet_mergelines_key', 'key': 'm', 'plug': 'emmet-merge-lines', 'func': '<c-r>=emmet#util#closePopup()<cr><c-r>=emmet#mergeLines()<cr>'},
+-  \ {'mode': 'n', 'var': 'user_emmet_mergelines_key', 'key': 'm', 'plug': 'emmet-merge-lines', 'func': ':call emmet#mergeLines()<cr>'},
+-  \ {'mode': 'v', 'var': 'user_emmet_codepretty_key', 'key': 'c', 'plug': 'emmet-code-pretty', 'func': ':call emmet#codePretty()<cr>'},
+-  \]
++  "\ {'mode': 'n', 'var': 'user_emmet_expandword_key', 'key': ';', 'plug': 'emmet-expand-word', 'func': ':call emmet#expandAbbr(1,"")<cr>'},
++  "\ {'mode': 'i', 'var': 'user_emmet_update_tag', 'key': 'u', 'plug': 'emmet-update-tag', 'func': '<c-r>=emmet#util#closePopup()<cr><c-r>=emmet#updateTag()<cr>'},
++  "\ {'mode': 'n', 'var': 'user_emmet_update_tag', 'key': 'u', 'plug': 'emmet-update-tag', 'func': ':call emmet#updateTag()<cr>'},
++  "\ {'mode': 'i', 'var': 'user_emmet_balancetaginward_key', 'key': 'd', 'plug': 'emmet-balance-tag-inward', 'func': '<esc>:call emmet#balanceTag(1)<cr>'},
++  "\ {'mode': 'n', 'var': 'user_emmet_balancetaginward_key', 'key': 'd', 'plug': 'emmet-balance-tag-inward', 'func': ':call emmet#balanceTag(1)<cr>'},
++  "\ {'mode': 'v', 'var': 'user_emmet_balancetaginward_key', 'key': 'd', 'plug': 'emmet-balance-tag-inward', 'func': '<esc>:call emmet#balanceTag(1)<cr>'},
++  "\ {'mode': 'i', 'var': 'user_emmet_balancetagoutward_key', 'key': 'D', 'plug': 'emmet-balance-tag-outword', 'func': '<esc>:call emmet#balanceTag(-1)<cr>'},
++  "\ {'mode': 'n', 'var': 'user_emmet_balancetagoutward_key', 'key': 'D', 'plug': 'emmet-balance-tag-outword', 'func': ':call emmet#balanceTag(-1)<cr>'},
++  "\ {'mode': 'v', 'var': 'user_emmet_balancetagoutward_key', 'key': 'D', 'plug': 'emmet-balance-tag-outword', 'func': '<esc>:call emmet#balanceTag(-1)<cr>'},
++  "\ {'mode': 'i', 'var': 'user_emmet_next_key', 'key': 'n', 'plug': 'emmet-move-next', 'func': '<c-r>=emmet#util#closePopup()<cr><c-r>=emmet#moveNextPrev(0)<cr>'},
++  "\ {'mode': 'n', 'var': 'user_emmet_next_key', 'key': 'n', 'plug': 'emmet-move-next', 'func': ':call emmet#moveNextPrev(0)<cr>'},
++  "\ {'mode': 'i', 'var': 'user_emmet_prev_key', 'key': 'N', 'plug': 'emmet-move-prev', 'func': '<c-r>=emmet#util#closePopup()<cr><c-r>=emmet#moveNextPrev(1)<cr>'},
++  "\ {'mode': 'n', 'var': 'user_emmet_prev_key', 'key': 'N', 'plug': 'emmet-move-prev', 'func': ':call emmet#moveNextPrev(1)<cr>'},
++  "\ {'mode': 'i', 'var': '', 'key': '', 'plug': 'emmet-move-next-item', 'func': '<esc>:call emmet#moveNextPrevItem(0)<cr>'},
++  "\ {'mode': 'n', 'var': '', 'key': '', 'plug': 'emmet-move-next-item', 'func': ':call emmet#moveNextPrevItem(0)<cr>'},
++  "\ {'mode': 'i', 'var': '', 'key': '', 'plug': 'emmet-move-prev-item', 'func': '<esc>:call emmet#moveNextPrevItem(1)<cr>'},
++  "\ {'mode': 'n', 'var': '', 'key': '', 'plug': 'emmet-move-prev-item', 'func': ':call emmet#moveNextPrevItem(1)<cr>'},
++  "\ {'mode': 'i', 'var': 'user_emmet_imagesize_key', 'key': 'i', 'plug': 'emmet-image-size', 'func': '<c-r>=emmet#util#closePopup()<cr><c-r>=emmet#imageSize()<cr>'},
++  "\ {'mode': 'n', 'var': 'user_emmet_imagesize_key', 'key': 'i', 'plug': 'emmet-image-size', 'func': ':call emmet#imageSize()<cr>'},
++  "\ {'mode': 'i', 'var': 'user_emmet_imageencode_key', 'key': 'I', 'plug': 'emmet-image-encode', 'func': '<c-r>=emmet#util#closePopup()<cr><c-r>=emmet#imageEncode()<cr>'},
++  "\ {'mode': 'n', 'var': 'user_emmet_imageencode_key', 'key': 'I', 'plug': 'emmet-image-encode', 'func': ':call emmet#imageEncode()<cr>'},
++  "\ {'mode': 'i', 'var': 'user_emmet_togglecomment_key', 'key': '/', 'plug': 'emmet-toggle-comment', 'func': '<c-r>=emmet#util#closePopup()<cr><c-r>=emmet#toggleComment()<cr>'},
++  "\ {'mode': 'n', 'var': 'user_emmet_togglecomment_key', 'key': '/', 'plug': 'emmet-toggle-comment', 'func': ':call emmet#toggleComment()<cr>'},
++  "\ {'mode': 'i', 'var': 'user_emmet_splitjointag_key', 'key': 'j', 'plug': 'emmet-split-join-tag', 'func': '<esc>:call emmet#splitJoinTag()<cr>'},
++  "\ {'mode': 'n', 'var': 'user_emmet_splitjointag_key', 'key': 'j', 'plug': 'emmet-split-join-tag', 'func': ':call emmet#splitJoinTag()<cr>'},
++  "\ {'mode': 'i', 'var': 'user_emmet_removetag_key', 'key': 'k', 'plug': 'emmet-remove-tag', 'func': '<c-r>=emmet#util#closePopup()<cr><c-r>=emmet#removeTag()<cr>'},
++  "\ {'mode': 'n', 'var': 'user_emmet_removetag_key', 'key': 'k', 'plug': 'emmet-remove-tag', 'func': ':call emmet#removeTag()<cr>'},
++  "\ {'mode': 'i', 'var': 'user_emmet_anchorizeurl_key', 'key': 'a', 'plug': 'emmet-anchorize-url', 'func': '<c-r>=emmet#util#closePopup()<cr><c-r>=emmet#anchorizeURL(0)<cr>'},
++  "\ {'mode': 'n', 'var': 'user_emmet_anchorizeurl_key', 'key': 'a', 'plug': 'emmet-anchorize-url', 'func': ':call emmet#anchorizeURL(0)<cr>'},
++  "\ {'mode': 'i', 'var': 'user_emmet_anchorizesummary_key', 'key': 'A', 'plug': 'emmet-anchorize-summary', 'func': '<c-r>=emmet#util#closePopup()<cr><c-r>=emmet#anchorizeURL(1)<cr>'},
++  "\ {'mode': 'n', 'var': 'user_emmet_anchorizesummary_key', 'key': 'A', 'plug': 'emmet-anchorize-summary', 'func': ':call emmet#anchorizeURL(1)<cr>'},
++  "\ {'mode': 'i', 'var': 'user_emmet_mergelines_key', 'key': 'm', 'plug': 'emmet-merge-lines', 'func': '<c-r>=emmet#util#closePopup()<cr><c-r>=emmet#mergeLines()<cr>'},
++  "\ {'mode': 'n', 'var': 'user_emmet_mergelines_key', 'key': 'm', 'plug': 'emmet-merge-lines', 'func': ':call emmet#mergeLines()<cr>'},
++  "\ {'mode': 'v', 'var': 'user_emmet_codepretty_key', 'key': 'c', 'plug': 'emmet-code-pretty', 'func': ':call emmet#codePretty()<cr>'},
++  \ ]
+ 
+   let only_plug = get(g:, 'emmet_install_only_plug', 0)
+   for item in items
+-- 
+2.25.0
+

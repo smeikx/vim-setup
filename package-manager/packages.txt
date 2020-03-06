@@ -1,0 +1,27 @@
+# This file describes which packages should be installed.
+# When parsed, blank lines and lines starting with ‘#’ should be ignored;
+# parameters are separated by ‘ - ’ for better readybility.
+
+#  1. Name: Under which name should it be saved?
+#  2. URL: Where is the repo?
+#  3. Category: Which category inside of `pack` does it belong to?
+#  4. Loading Moment: Should it be loaded at start? (opt/start)
+
+# Name - URL - Category - Loading Moment
+
+goyo - https://github.com/junegunn/goyo.vim.git - general - start
+c-esque-folding - https://github.com/smeikx/c-esque-folding.git - general - opt
+lldb - https://github.com/gilligan/vim-lldb.git - general - opt
+glsl - https://github.com/tikhomirov/vim-glsl.git - general - opt
+
+emmet - https://github.com/mattn/emmet-vim.git - web - opt
+javascript - https://github.com/pangloss/vim-javascript.git - web - opt
+graphql - https://github.com/jparise/vim-graphql.git - web - opt
+
+markdown-folding - https://github.com/smeikx/markdown-folding.git - markdown - opt
+
+rigel - https://github.com/Rigellute/rigel.git - schemes - start
+monokai-tasty - https://github.com/patstockwell/vim-monokai-tasty.git - schemes - opt
+dracula - https://github.com/dracula/vim - schemes - opt
+hashpunk - https://github.com/abnt713/vim-hashpunk - schemes - opt
+

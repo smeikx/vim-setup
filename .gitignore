@@ -1,0 +1,14 @@
+*.DS_Store
+
+.netrwhist
+
+# ignore all packages
+pack/*/*/*/
+
+# un-ignore local packages
+!**/taglist_46/
+!**/abbreviations/
+!**/rg/
+!**/markdown-shortcuts/
+!**/closetag/
+
