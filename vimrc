@@ -5,178 +5,215 @@ augroup filetype_vim
 augroup END
 
 
-" Übergreifende Grundeinstellungen ————————————————— {{{
+" Basic Behaviour -------------- {{{
 
-" wie viele Spaces hat ein Tab
-set tabstop=3
+	" backspace deletes beyond line breaks
+	set backspace=indent,eol,start
 
-" wie viele Spaces wird eingerückt
-set shiftwidth=3
+	" display word in next line if it’s too long (word wrap)
+	set linebreak
 
-" behält Einrückungsstufe bei Zeilenumbruch bei
-set autoindent
+	" keep indendation for wrapped words
+	set breakindent
 
-" verhindert Konvertierung von Tabs zu Spaces
-set noexpandtab
-
-" Rücktaste löscht auch über Zeilenumbrüch (etc.) hinweg
-set backspace=indent,eol,start
-
-" aktiert Filetype-bezogene Einstellungen (.vim/ftplugin)
-filetype plugin indent on
-
-" aktiviert Zeilennummerierung
-set number 
-
-" aktiviert relative Zeilennummerierung
-set relativenumber
-
-" aktiviert Syntax-Highlighting
-syntax on
-
-" markiert Suchergebnisse
-set hlsearch 
-
-" Ignore Case (in Search)
-set ignorecase
-
-" Casesensitive bei Eingabe einer Versalie
-set smartcase
-
-" sucht während Eingabe
-set incsearch
-
-" rückt Wort in nächste Zeile, falls es nicht mehr Platz hat
-set linebreak
-
-" Show as much as possible of a wrapped last line, not just @.
-set display=lastline
-
-" Einrückungen werden bei Wrap beibehalten
-set breakindent
-
-" für Settings die mit File gespeichtert werden /* vim: set tabstop=8 */
-set modeline 
-
-set grepprg=internal
-
-" ermöglicht Scrollen
-"set mouse=n
-
-set exrc " lädt vimrc vom aktuellen Directory
-set secure " soll Ausführen von Befehlen im vimrc verhindern
-
-" gibt an, wie viele Farben im Terminal möglich sind
-set t_Co=256   " This may or may not be needed.
-set term=xterm-256color-italic
-
-" ermöglicht Italics
-highlight Comment cterm=italic
-
-" Wo werden neue Fenster geöffnet?
-set splitbelow
-set splitright
-
-" blendet Header von Filebrowser aus
-let g:netrw_banner = 1
-
-" Folding basiert auf Einrückungen, wird aber deaktiviert
-set foldmethod=indent
-set nofoldenable
-set fml=0
-
-" sucht nach tags-File
-set tags=./tags;/
-
-" Redrawing ist wahrscheinlicher
-set ttyfast
-
-" verringert mögliche Latenz zw. Terminal & vim
-set ttimeout
-set ttimeoutlen=50
-
-" zeicht unvollständige Befehle
-set showcmd
-
-" bessere Befehlsvervollständigung
-set wildmenu
-
-" lege fest, wie aktuelle Zeile hervorgehoben wird
-set cursorlineopt=number
+	" show as much as possible of a wrapped last line, not just @
+	set display=lastline
 
 " }}}
 
 
+" Indentation -------------- {{{
+
+	" How many spaces does pressing tab produce?
+	set tabstop=3
+
+	" How many spaces shall be used for indentation?
+	set shiftwidth=3
+
+	" keeps indentation on linebreak
+	set autoindent
+
+	" prevents conversion of tabs to spaces
+	set noexpandtab
+
+" }}}
+
+
+" Search -------------- {{{
+
+	" activate syntax higlighting
+	syntax on
+
+	" highlight search results
+	set hlsearch 
+
+	" ignore case (in search)
+	set ignorecase
+
+	" make search case sensitive if query contains upper case letters
+	set smartcase
+
+	" progresses search while typing
+	set incsearch
+
+" }}}
+
+
+" Line Numbers -------------- {{{
+
+	" show line numbers
+	set number 
+
+	" show line numbers relative to current line
+	set relativenumber
+
+	" highlight current line by displaying the absolute line number
+	set cursorlineopt=number
+
+" }}}
+
+
+" Folding -------------- {{{
+
+	" fold based on indentation
+	set foldmethod=indent
+
+	" deactivate folding on start
+	set nofoldenable
+
+	" How many lines are needed for a fold?
+	set foldminlines=0
+
+" }}}
+
+
+" Convenience -------------- {{{
+
+	" show commands entered in the lower right corner
+	set showcmd
+
+	" show better suggestions when entering commands and pressing tab
+	set wildmenu
+
+" }}}
+
+
+" Display & Terminal -------------- {{{
+
+	" specify the terminal’s color capacities
+	set t_Co=256   " This may or may not be needed.
+	set term=xterm-256color-italic
+
+	" enable 24bit true color
+	set termguicolors
+
+	" increase probability of redrawing screen, potentially preventing glitches
+	set ttyfast
+
+	" reduce latency between the terminal and vim
+	set ttimeout
+	set ttimeoutlen=50
+
+" }}}
+
+
+" General -------------- {{{
+
+	" activate file type plugins (.vim/ftplugin)
+	filetype plugin indent on
+
+	" Where are new windows created?
+	set splitbelow
+	set splitright
+
+	" hide the file browser’s header
+	let g:netrw_banner = 1
+
+	" search for ctags-generated tags file in working dir
+	set tags=./tags;/
+
+	" use vim’s internal grep for :grep
+	set grepprg=internal
+
+	" allow saving vim-specific settings within a file, e.g.:
+	" /* vim: set tabstop=8 */
+	set modeline 
+
+	" also look for vimrc in working directory
+	set exrc 
+
+	" prevent running commands from within a vimrc
+	set secure
+
+" }}}
+
+
+
 " Mappings -------------- {{{
 
-" mapt den <Leader>-Key auf ' ' (default ist '\')
-let mapleader = " "
+	" maps  <leader> key to space (default is slash)
+	let mapleader = " "
 
-nnoremap <leader>O O<esc>j
-nnoremap <leader>o o<esc>k
-nnoremap <leader><cr> i<cr><Esc>
+	" quickly edit and source the vimrc
+	nnoremap <leader>ev :tabe $MYVIMRC<cr>
+	nnoremap <leader>sv :source $MYVIMRC<cr>
 
-" nnoremap / /\v
-" cnoremap %s/ %s/\v
-
-nnoremap <leader>ev :tabe $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
-
-" show definition in preview window
-nnoremap ä :tj <c-r><c-w><cr>
-nnoremap <leader>ä :ptj <c-r><c-w><cr>
+	" show definition in preview window, using the tag system
+	nnoremap ä :tj <c-r><c-w><cr>
+	nnoremap <leader>ä :ptj <c-r><c-w><cr>
 
 "}}}
 
 
 " Color Schemes -------------- {{{
 
-" enable 24bit true color
-set termguicolors
+	" make all comments italic
+	highlight Comment cterm=italic
 
-" führt eigenes Shell-Skript aus, um zu erkennen, ob Darkmode aktiviert ist
-if system("is-darkmode.sh") == 1
-	set background=dark
-	pa rigel
-	color rigel
-else
-	set background=light
-	color summerfruit256
-endif
+	" run custom shell script for determining if the system prefers a dark color scheme
+	if system("is-darkmode.sh") == 1
+		set background=dark
+		color rigel
+	else
+		set background=light
+		color summerfruit256
+	endif
 
 "}}}
 
 
-" Plugin-Einstellungen -------------------------- {{{
+" Package-Specific Settings -------------------------- {{{
 
-" für Goyo
-let g:goyo_width=92
-"let g:goyo_height='100%'
-let g:goyo_linenr=1 " Zeilennummerierung?
-let g:goyo_margin_top=0
-let g:goyo_margin_bottom=0
+	" Goyo
+	let g:goyo_width=92
+	"let g:goyo_height='100%'
+	let g:goyo_linenr=1 " line numbers
+	let g:goyo_margin_top=0
+	let g:goyo_margin_bottom=0
 
 "}}}
 
 
 " Autocommands -------------------------- {{{
 
-augroup autocommands
-	" löscht alle bestehenden autocmds
-	au!
+	augroup autocommands
 
-	au FileType text,markdown packadd goyo
-	"au FileType markdown packadd markdown-folding
+		" delete all autocommands
+		au!
 
-	" aktiviert wrap im diff-Modus
-	au FilterWritePre * if &diff | setlocal wrap | endif
+		" also activate word wrap for diff mode (vimdiff)
+		au FilterWritePre * if &diff | setlocal wrap | endif
 
-	" aktiviere Plugin für GLSL-Syntax-Highlighting
-	au BufNewFile,BufRead *.vs,*.fs,*.vert,*.tesc,*.tese,*.geom,*.frag,*.comp,*.glsl set ft=glsl
-	" aktiviert eigenes Folding-Plugin
-	au FileType cpp,arduino,c,processing,java packadd c-esque-folding
 
-augroup END
+		"TODO Maybe find a better way to handling the following two autocommands.
+
+		" activate package for syntax highlighting GLSL code
+		au BufNewFile,BufRead *.vs,*.fs,*.vert,*.tesc,*.tese,*.geom,*.frag,*.comp,*.glsl set ft=glsl
+		
+		" activate custom folding plugin
+		au FileType cpp,arduino,c,processing,java packadd c-esque-folding
+
+	augroup END
 
 "}}}
 
