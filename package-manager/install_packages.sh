@@ -12,6 +12,11 @@ install_plugin ()
 	load_moment="$4"
 	
 	package_path="$PACK_ROOT/$category/$load_moment"
+
+	# check if the plugin’s directory already exists and
+	# exit if it does (important when re-running this script)
+	[ -d "$package_path" ] && return 1
+
 	mkdir -p "$package_path"
 	
 	destination="$package_path/$name" 
