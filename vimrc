@@ -105,7 +105,10 @@ augroup END
 	set term=xterm-256color-italic
 
 	" enable 24bit true color
-	set termguicolors
+	if $TERM != 'linux'
+		set termguicolors
+	endif
+
 
 	" increase probability of redrawing screen, potentially preventing glitches
 	set ttyfast
