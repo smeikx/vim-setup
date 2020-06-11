@@ -101,14 +101,18 @@ augroup END
 " Display & Terminal -------------- {{{
 
 	" specify the terminal’s color capacities
-	set t_Co=256   " This may or may not be needed.
-	set term=xterm-256color-italic
+	set t_Co=256 " This may or may not be needed.
 
-	" enable 24bit true color
+	" enable 24 bit true color if not in virtual console
 	if $TERM != 'linux'
 		set termguicolors
 	endif
 
+	" also enable true color for tmux
+	if exists("$TMUX")
+		let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+		let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+	endif
 
 	" increase probability of redrawing screen, potentially preventing glitches
 	set ttyfast
