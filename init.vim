@@ -214,14 +214,6 @@ augroup END
 
 		" also activate word wrap for diff mode (vimdiff)
 		au FilterWritePre * if &diff | setlocal wrap | endif
-		
-		"TODO Maybe find a better way to handling the following two autocommands.
-
-		" activate package for syntax highlighting GLSL code
-		au BufNewFile,BufRead *.vs,*.fs,*.vert,*.tesc,*.tese,*.geom,*.frag,*.comp,*.glsl set ft=glsl
-		
-		" activate custom folding plugin
-		au FileType cpp,arduino,c,processing,java packadd c-esque-folding
 
 	augroup END
 
