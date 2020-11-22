@@ -9,3 +9,5 @@ function! SetProcessingSyntax()
 	au! filetype_processing
 	set syntax=java
 endfunction
+
+pa c-esque-folding

@@ -16,7 +16,7 @@ glsl - https://github.com/tikhomirov/vim-glsl.git - general - opt
 modern-cpp - https://github.com/bfrg/vim-cpp-modern.git - general - opt
 
 emmet - https://github.com/mattn/emmet-vim.git - web - opt
-javascript - https://github.com/pangloss/vim-javascript.git - web - opt
+vim-javascript - https://github.com/pangloss/vim-javascript.git - web - opt
 graphql - https://github.com/jparise/vim-graphql.git - web - opt
 
 markdown-folding - https://github.com/smeikx/markdown-folding.git - markdown - opt
