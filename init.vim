@@ -19,7 +19,7 @@ augroup END
 	" show as much as possible of a wrapped last line, not just @
 	set display=lastline
 
-	" disable automatic line break
+	" disable automatik line break
 	set textwidth=0
 
 " }}}
