@@ -19,7 +19,7 @@ augroup END
 	" show as much as possible of a wrapped last line, not just @
 	set display=lastline
 
-	" disable 
+	" disable automatic line break
 	set textwidth=0
 
 " }}}
@@ -30,8 +30,8 @@ augroup END
 	" How many spaces does pressing tab produce?
 	set tabstop=3
 
-	" How many spaces shall be used for indentation?
-	set shiftwidth=3
+	" How many spaces shall be used for indentation?; 0 → use same as tabstop
+	set shiftwidth=0
 
 	" keeps indentation on linebreak
 	set autoindent
@@ -95,6 +95,8 @@ augroup END
 	" show better suggestions when entering commands and pressing tab
 	set wildmenu
 
+	" show list of suggestions when hitting Tab in wildmenu
+	set wildmode=list:full
 " }}}
 
 
@@ -141,6 +143,7 @@ augroup END
 	set tags=./tags;/
 
 	" use vim’s internal grep for :grep
+	" TODO: just use ripgrep somehow, might make custom Rg obsolete
 	set grepprg=internal
 
 	" allow saving vim-specific settings within a file, e.g.:
@@ -166,9 +169,10 @@ augroup END
 	nnoremap <leader>ev :tabe $MYVIMRC<cr>
 	nnoremap <leader>sv :source $MYVIMRC<cr>
 
+	" TODO: Consider LSP and other modern methods — and the keyboard layout.
 	" show definition in preview window, using the tag system
-	nnoremap ä :tj <c-r><c-w><cr>
-	nnoremap <leader>ä :ptj <c-r><c-w><cr>
+	"nnoremap ä :tj <c-r><c-w><cr>
+	"nnoremap <leader>ä :ptj <c-r><c-w><cr>
 
 "}}}
 
@@ -176,10 +180,7 @@ augroup END
 " Color Schemes -------------- {{{
 
 	" make all comments italic
-	highlight Comment cterm=italic
-
-	" activate italics for the ‘one’ color scheme
-	"let g:one_allow_italics = 1
+	"highlight Comment cterm=italic
 
 	" run custom shell script for determining if the system prefers a dark color scheme
 	if system("is-darkmode.sh") == 1
