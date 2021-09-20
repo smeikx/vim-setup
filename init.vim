@@ -4,7 +4,6 @@ augroup filetype_vim
 	autocmd FileType vim setlocal foldenable
 augroup END
 
-
 " Basic Behaviour -------------- {{{
 
 	" backspace deletes beyond line breaks
@@ -19,7 +18,7 @@ augroup END
 	" show as much as possible of a wrapped last line, not just @
 	set display=lastline
 
-	" disable automatik line break
+	" disable automatic line break
 	set textwidth=0
 
 " }}}
@@ -70,6 +69,9 @@ augroup END
 	" show line numbers relative to current line
 	set relativenumber
 
+	" show sign when there is any (when using LSP or make)
+	set signcolumn=auto
+
 " }}}
 
 
@@ -103,7 +105,7 @@ augroup END
 " Display & Terminal -------------- {{{
 
 	" specify the terminal’s color capacities
-	set t_Co=256 " This may or may not be needed.
+	"set t_Co=256 " This may or may not be needed.
 
 	" enable 24 bit true color if not in virtual console
 	if $TERM != 'linux'
@@ -116,13 +118,9 @@ augroup END
 		let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 	endif
 
-	" increase probability of redrawing screen, potentially preventing glitches
-	set ttyfast
-
 	" reduce latency between the terminal and vim
-	set ttimeout
-	set ttimeoutlen=50
-	set timeoutlen=200
+	"set ttimeout
+	set timeoutlen=500
 
 " }}}
 
@@ -140,7 +138,7 @@ augroup END
 	let g:netrw_banner = 1
 
 	" search for ctags-generated tags file in working dir
-	set tags=./tags;/
+	"set tags=./tags;/
 
 	" use vim’s internal grep for :grep
 	" TODO: just use ripgrep somehow, might make custom Rg obsolete
@@ -157,7 +155,6 @@ augroup END
 	set secure
 
 " }}}
-
 
 
 " Mappings -------------- {{{
@@ -188,9 +185,11 @@ augroup END
 		color rigel
 	else
 		set background=light
-		color summerfruit256
+		color github_light "summerfruit256
 	endif
 
+    " let scheme decide color of cursor
+    set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor/lCursor,r-cr:hor20,o:hor50
 "}}}
 
 
@@ -219,4 +218,3 @@ augroup END
 	augroup END
 
 "}}}
-
